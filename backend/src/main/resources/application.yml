@@ -10,23 +10,24 @@ server:
 spring:
   application:
     name: personal-page-backend
+  profiles:
+    active: dev
+  # 使用MySQL数据库
   datasource:
-    url: ${MYSQL_URL:jdbc:mysql://localhost:3306/personal_page?useSSL=true&requireSSL=true&characterEncoding=UTF-8&serverTimezone=UTC}
-    username: ${MYSQL_USERNAME:app_user}
-    password: ${MYSQL_PASSWORD:change-me}
+    url: ${MYSQL_URL:jdbc:mysql://localhost:3306/personal_page?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:root}
     driver-class-name: com.mysql.cj.jdbc.Driver
-    hikari:
-      minimum-idle: 5
-      maximum-pool-size: 20
-      connection-timeout: 30000
-      max-lifetime: 1800000
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     properties:
       hibernate:
-        format_sql: false
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+    show-sql: true
     open-in-view: false
+  # 启用Redis
   data:
     redis:
       host: ${REDIS_HOST:localhost}
@@ -34,10 +35,11 @@ spring:
       timeout: 3s
       password: ${REDIS_PASSWORD:}
   kafka:
-    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
-    producer:
-      retries: 3
-      acks: all
+    bootstrap-servers: localhost:9092
+    consumer:
+      auto-offset-reset: earliest
+    listener:
+      missing-topics-fatal: false
 
 management:
   endpoints:
@@ -45,14 +47,22 @@ management:
       exposure:
         include: health,info,metrics
 
+# 开发环境暂时禁用Dubbo配置
 dubbo:
   application:
     name: personal-page-provider
+    enable-file-cache: false
   protocol:
     name: dubbo
-    port: ${DUBBO_PORT:20880}
+    port: -1
   registry:
-    address: zookeeper://${ZOOKEEPER_HOST:localhost}:${ZOOKEEPER_PORT:2181}
+    address: N/A
+    check: false
+  config-center:
+    check: false
+  metadata-report:
+    address: N/A
+    check: false
 
 springdoc:
   swagger-ui:
