@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import http from '../api/http'
+import { getProfile } from '../api/profileApi'
 
 export const useProfileStore = defineStore('profile', {
   state: () => ({
@@ -12,7 +12,7 @@ export const useProfileStore = defineStore('profile', {
       this.loading = true
       this.error = ''
       try {
-        const { data } = await http.get('/api/v1/profile')
+        const { data } = await getProfile()
         this.profile = data
       } catch {
         this.error = '暂时无法加载线上资料，已切换到默认展示。'
