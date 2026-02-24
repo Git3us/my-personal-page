@@ -1,0 +1,59 @@
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /
+  tomcat:
+    max-threads: 200
+    accept-count: 100
+    connection-timeout: 5s
+
+spring:
+  application:
+    name: personal-page-backend
+  datasource:
+    url: ${MYSQL_URL:jdbc:mysql://localhost:3306/personal_page?useSSL=true&requireSSL=true&characterEncoding=UTF-8&serverTimezone=UTC}
+    username: ${MYSQL_USERNAME:app_user}
+    password: ${MYSQL_PASSWORD:change-me}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      connection-timeout: 30000
+      max-lifetime: 1800000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: false
+    open-in-view: false
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      timeout: 3s
+      password: ${REDIS_PASSWORD:}
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+    producer:
+      retries: 3
+      acks: all
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+dubbo:
+  application:
+    name: personal-page-provider
+  protocol:
+    name: dubbo
+    port: ${DUBBO_PORT:20880}
+  registry:
+    address: zookeeper://${ZOOKEEPER_HOST:localhost}:${ZOOKEEPER_PORT:2181}
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
