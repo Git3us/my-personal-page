@@ -1,3 +1,7 @@
+/*
+ * 暂时注释Kafka配置，开发环境不需要
+ */
+/*
 package com.personalpage.config;
 
 import org.apache.kafka.clients.admin.NewTopic;
@@ -12,3 +16,4 @@ public class KafkaConfig {
         return new NewTopic("profile-audit", 3, (short) 1);
     }
 }
+*/
