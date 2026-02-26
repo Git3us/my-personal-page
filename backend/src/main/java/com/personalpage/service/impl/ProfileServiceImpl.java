@@ -1,14 +1,16 @@
 package com.personalpage.service.impl;
 
+
 import com.personalpage.dto.ProfileResponse;
 import com.personalpage.entity.Profile;
 import com.personalpage.repository.ProfileRepository;
 import com.personalpage.service.ProfileService;
-import java.util.Arrays;
-import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class ProfileServiceImpl implements ProfileService {
