@@ -10,7 +10,7 @@
         <div class="brand-icon">A</div>
         <div>
           <div class="brand-name">Alex Dev</div>
-          <small>Figma V2 Portfolio</small>
+          <small>Figma V2 作品集</small>
         </div>
       </div>
       <ThemeToggle :is-dark="isDark" @toggle="toggleTheme" />
@@ -18,20 +18,19 @@
 
     <section class="hero">
       <div class="hero-content">
-        <Chip label="FULL STACK DEVELOPER" variant="solid" />
+        <Chip label="全栈开发工程师" variant="solid" />
         <h1>
-          Building digital
-          <span>experiences</span>
-          that matter.
+          打造真正有价值的
+          <span>数字体验</span>
+          与产品。
         </h1>
         <p>
-          I craft high-performance web applications with a focus on user experience,
-          clean code, and modern design principles.
+          专注高性能 Web 应用开发，注重用户体验、工程质量与现代化设计落地。
         </p>
 
         <div class="actions">
-          <button class="btn btn--primary">Contact Me →</button>
-          <button class="btn btn--ghost">Resume</button>
+          <button class="btn btn--primary">联系我 →</button>
+          <button class="btn btn--ghost">下载简历</button>
         </div>
       </div>
 
@@ -46,24 +45,24 @@
     <p v-if="store.error" class="warning">{{ store.error }}</p>
 
     <section class="three-grid">
-      <SectionCard title="About Me">
+      <SectionCard title="关于我">
         <p class="muted">
           {{ store.profile.bio }}
         </p>
         <div class="stats">
           <div class="stat-box">
             <strong>5+</strong>
-            <span>Years Exp</span>
+            <span>年经验</span>
           </div>
           <div class="stat-box">
             <strong>50+</strong>
-            <span>Projects</span>
+            <span>项目</span>
           </div>
         </div>
       </SectionCard>
 
-      <SectionCard title="Tech Stack">
-        <h4>Frontend</h4>
+      <SectionCard title="技术栈">
+        <h4>前端</h4>
         <div class="chip-row">
           <Chip label="Vue" />
           <Chip label="TypeScript" variant="outline" />
@@ -71,31 +70,31 @@
           <Chip label="Motion" variant="outline" />
         </div>
 
-        <h4>Backend & Tools</h4>
+        <h4>后端与工具</h4>
         <div class="chip-row">
           <Chip v-for="skill in store.profile.skills" :key="skill" :label="skill" variant="outline" />
         </div>
       </SectionCard>
 
       <div class="column-stack">
-        <SectionCard title="Recent Work">
+        <SectionCard title="近期项目">
           <a href="#" class="work-item">
-            <span>Fintech Dashboard</span>
-            <small>Real-time analytics platform for crypto assets.</small>
+            <span>金融数据看板</span>
+            <small>面向加密资产的实时分析平台。</small>
           </a>
           <a href="#" class="work-item">
-            <span>AI Content Generator</span>
-            <small>SaaS application utilizing OpenAI API.</small>
+            <span>AI 内容生成平台</span>
+            <small>基于 OpenAI API 的 SaaS 应用。</small>
           </a>
         </SectionCard>
 
-        <SectionCard title="Connect">
+        <SectionCard title="联系渠道">
           <div class="socials">
             <a href="#">GitHub</a>
             <a href="#">LinkedIn</a>
-            <a href="#">Blog</a>
+            <a href="#">博客</a>
           </div>
-          <p class="online"><i></i> Online Now</p>
+          <p class="online"><i></i> 当前在线</p>
         </SectionCard>
       </div>
     </section>
