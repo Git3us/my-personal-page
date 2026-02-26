@@ -34,12 +34,9 @@ spring:
       port: ${REDIS_PORT:6379}
       timeout: 3s
       password: ${REDIS_PASSWORD:}
+  # Kafka配置在开发环境中禁用
   kafka:
-    bootstrap-servers: localhost:9092
-    consumer:
-      auto-offset-reset: earliest
-    listener:
-      missing-topics-fatal: false
+    enabled: false
 
 management:
   endpoints:
@@ -47,22 +44,10 @@ management:
       exposure:
         include: health,info,metrics
 
-# 开发环境暂时禁用Dubbo配置
+# 开发环境完全禁用Dubbo配置
 dubbo:
   application:
-    name: personal-page-provider
-    enable-file-cache: false
-  protocol:
-    name: dubbo
-    port: -1
-  registry:
-    address: N/A
-    check: false
-  config-center:
-    check: false
-  metadata-report:
-    address: N/A
-    check: false
+    enabled: false
 
 springdoc:
   swagger-ui:
