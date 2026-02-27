@@ -3,20 +3,32 @@ server:
 
 spring:
   application:
-    name: my-personal-page-backend
+    name: personal-page-backend
+  # 为保证本地无障碍启动，默认关闭 MySQL/JPA 自动配置。
+  # 准备接入真实数据库时，移除下面 exclude 并配置 datasource。
   autoconfigure:
     exclude:
       - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
       - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
-      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
-
-  datasource:
-    url: jdbc:mysql://127.0.0.1:3306/my_personal_page?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
-    username: root
-    password: root
 
   data:
     redis:
-      host: 127.0.0.1
+      host: localhost
       port: 6379
       database: 0
+      timeout: 2s
+      # password: your-password
+
+# datasource:
+#   url: jdbc:mysql://localhost:3306/personal_page?useSSL=false&serverTimezone=Asia/Shanghai&characterEncoding=utf8
+#   username: root
+#   password: root
+#   driver-class-name: com.mysql.cj.jdbc.Driver
+
+# jpa:
+#   hibernate:
+#     ddl-auto: update
+#   open-in-view: false
+#   properties:
+#     hibernate:
+#       format_sql: true

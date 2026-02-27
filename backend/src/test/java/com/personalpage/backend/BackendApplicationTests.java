@@ -1,13 +1,12 @@
-package com.example.personalpage;
+package com.personalpage.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PersonalPageApplicationTests {
+class BackendApplicationTests {
 
     @Test
     void contextLoads() {
-        System.out.println("1");
     }
 }
