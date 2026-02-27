@@ -1,9 +1,0 @@
-@import 'tailwindcss' source(none);
-@source '../**/*.{js,jsx}';
-@theme {
-  --animate-pulse-slow: pulse-slow 4s ease-in-out infinite;
-  @keyframes pulse-slow {
-    0%, 100% { opacity: .6; }
-    50% { opacity: 1; }
-  }
-}
