@@ -6,7 +6,7 @@ frontend/package-lock.json
 
 # Figma projects (keep specific node_modules)
 figma/*/node_modules/
-!figma/figma-V3/
+!figma/figma-V3/node_modules/
 
 # Java
 backend/target/
@@ -64,6 +64,18 @@ coverage/
 # Dependency directories
 # node_modules/  # Commented out to allow figma projects
 jspm_packages/
+
+# Specific exclusions for figma projects
+!figma/*/package.json
+!figma/*/package-lock.json
+!figma/*/*.config.*
+!figma/*/vite.config.*
+!figma/*/postcss.config.*
+!figma/*/tailwind.config.*
+!figma/*/tsconfig.*
+!figma/*/README.md
+!figma/*/ATTRIBUTIONS.md
+!figma/*/index.html
 
 # Typescript
 *.tsbuildinfo
