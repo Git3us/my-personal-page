@@ -4,6 +4,10 @@ frontend/dist/
 frontend/.vite/
 frontend/package-lock.json
 
+# Figma projects (keep specific node_modules)
+figma/*/node_modules/
+!figma/figma-V3/
+
 # Java
 backend/target/
 backend/.mvn/
@@ -58,7 +62,7 @@ coverage/
 *.lcov
 
 # Dependency directories
-node_modules/
+# node_modules/  # Commented out to allow figma projects
 jspm_packages/
 
 # Typescript
