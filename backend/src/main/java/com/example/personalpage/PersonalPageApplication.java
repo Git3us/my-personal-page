@@ -1,4 +1,4 @@
-package com.personalpage;
+package com.example.personalpage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

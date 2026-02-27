@@ -1,18 +1,10 @@
 <template>
-  <span :class="['chip', variant === 'solid' ? 'chip--solid' : 'chip--outline']">
-    {{ label }}
-  </span>
+  <span class="chip" :class="variant">{{ label }}</span>
 </template>
 
 <script setup>
 defineProps({
-  label: {
-    type: String,
-    required: true
-  },
-  variant: {
-    type: String,
-    default: 'outline'
-  }
+  label: { type: String, required: true },
+  variant: { type: String, default: 'filled' }
 })
 </script>

@@ -1,54 +1,22 @@
 server:
-  port: ${SERVER_PORT:8080}
-  servlet:
-    context-path: /
-  tomcat:
-    max-threads: 200
-    accept-count: 100
-    connection-timeout: 5s
+  port: 8080
 
 spring:
   application:
-    name: personal-page-backend
-  profiles:
-    active: dev
-  # 使用MySQL数据库
+    name: my-personal-page-backend
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+
   datasource:
-    url: ${MYSQL_URL:jdbc:mysql://localhost:3306/personal_page?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC}
-    username: ${MYSQL_USERNAME:root}
-    password: ${MYSQL_PASSWORD:root}
-    driver-class-name: com.mysql.cj.jdbc.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
-        format_sql: true
-    show-sql: true
-    open-in-view: false
-  # 启用Redis
+    url: jdbc:mysql://127.0.0.1:3306/my_personal_page?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: root
+
   data:
     redis:
-      host: ${REDIS_HOST:localhost}
-      port: ${REDIS_PORT:6379}
-      timeout: 3s
-      password: ${REDIS_PASSWORD:}
-  # Kafka配置在开发环境中禁用
-  kafka:
-    enabled: false
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health,info,metrics
-
-# 开发环境完全禁用Dubbo配置
-dubbo:
-  application:
-    enabled: false
-
-springdoc:
-  swagger-ui:
-    path: /swagger-ui.html
+      host: 127.0.0.1
+      port: 6379
+      database: 0

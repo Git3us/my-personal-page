@@ -1,38 +1,12 @@
 :root {
-  --bg-primary: #f8fafc;
-  --bg-secondary: #ffffff;
-  --bg-card: rgba(255, 255, 255, 0.72);
-  --bg-card-hover: rgba(255, 255, 255, 0.92);
-
-  --text-primary: #0f172a;
-  --text-secondary: #64748b;
-
   --primary: #2563eb;
   --accent: #38bdf8;
-
-  --border-subtle: rgba(15, 23, 42, 0.1);
-  --border-highlight: rgba(37, 99, 235, 0.4);
-
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-
-  --shadow-sm: 0 2px 6px rgb(15 23 42 / 0.08);
-  --shadow-md: 0 12px 28px rgb(15 23 42 / 0.12);
-}
-
-:root[data-theme='dark'] {
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --bg-card: rgba(30, 41, 59, 0.58);
-  --bg-card-hover: rgba(51, 65, 85, 0.75);
-
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-
-  --primary: #60a5fa;
-  --accent: #22d3ee;
-
-  --border-subtle: rgba(255, 255, 255, 0.12);
-  --border-highlight: rgba(56, 189, 248, 0.56);
+  --bg-dark: #0f172a;
+  --bg-light: #f8fafc;
+  --text-light: #e2e8f0;
+  --text-dark: #0f172a;
+  --card-dark: rgba(30, 41, 59, 0.6);
+  --card-light: rgba(255, 255, 255, 0.92);
+  --border-dark: rgba(148, 163, 184, 0.25);
+  --border-light: rgba(15, 23, 42, 0.12);
 }

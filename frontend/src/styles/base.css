@@ -1,30 +1,14 @@
-* {
-  box-sizing: border-box;
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Inter, system-ui, sans-serif; }
+.page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  transition: background-color .4s ease, color .4s ease;
 }
-
-html,
-body,
-#app {
-  margin: 0;
-  min-height: 100%;
-}
-
-body {
-  font-family: var(--font-sans);
-  background: radial-gradient(circle at 90% 10%, rgb(56 189 248 / 0.14), transparent 30%),
-    radial-gradient(circle at 10% 90%, rgb(37 99 235 / 0.12), transparent 35%),
-    var(--bg-primary);
-  color: var(--text-primary);
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-button,
-a {
-  font: inherit;
-  color: inherit;
-}
-
-ul {
-  margin: 0;
-  padding-left: 20px;
-}
+.page.dark { background: var(--bg-dark); color: var(--text-light); }
+.page.light { background: var(--bg-light); color: var(--text-dark); }
+.container { max-width: 1200px; margin: 0 auto; padding: 32px 24px 64px; position: relative; z-index: 1; }
+.ambient { position: absolute; width: 40vw; height: 40vw; filter: blur(120px); border-radius: 9999px; opacity: .35; }
+.ambient-a { left: -10vw; top: -8vw; background: var(--accent); }
+.ambient-b { right: -10vw; bottom: -12vw; background: var(--primary); }
